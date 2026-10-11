@@ -1,0 +1,33 @@
+
+> pond-dash@1.0.0 check:export
+> node scripts/check-export.mjs
+
+{
+  "result": "PASS",
+  "manifest": "exact match",
+  "relativeAssets": true,
+  "cover": "1200 × 630",
+  "bytes": 44404,
+  "files": [
+    {
+      "file": "assets/index-D0GBlCES.js",
+      "bytes": 37114
+    },
+    {
+      "file": "cover.svg",
+      "bytes": 5291
+    },
+    {
+      "file": "favicon.svg",
+      "bytes": 436
+    },
+    {
+      "file": "index.html",
+      "bytes": 1070
+    },
+    {
+      "file": "pepe-game.json",
+      "bytes": 493
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "browser": "153.0.8010.12",
+  "playwright": "1.56.1",
+  "results": [
+    {
+      "name": "Start, metadata and responsive layout",
+      "status": "passed",
+      "widths": [
+        1440,
+        900,
+        640,
+        390,
+        320
+      ]
+    },
+    {
+      "name": "Automated accessibility audit: start screen",
+      "status": "passed",
+      "violations": 0,
+      "incomplete": [
+        "color-contrast"
+      ]
+    },
+    {
+      "name": "Keyboard start and all four steering keys",
+      "status": "passed",
+      "center": 558.5041459369818,
+      "left": 394.21512605042017,
+      "right": 658.641196013289
+    },
+    {
+      "name": "P, Escape, pause button, resume and frozen simulation",
+      "status": "passed",
+      "axeViolations": 0,
+      "incomplete": [
+        "color-contrast"
+      ]
+    },
+    {
+      "name": "Restart resets the round; sound initializes only after user gesture",
+      "status": "passed"
+    },
+    {
+      "name": "Collect, survive 60 seconds, win, three collisions, game over, replay",
+      "status": "passed",
+      "axeViolations": 0,
+      "incomplete": [
+        "color-contrast"
+      ]
+    },
+    {
+      "name": "Personal best persists across reload",
+      "status": "passed"
+    },
+    {
+      "name": "Mobile touch drag, visible pause, restart and 320px active HUD",
+      "status": "passed",
+      "startX": 177.3209549071618,
+      "draggedX": 287.3209549071618
+    },
+    {
+      "name": "Reduced motion: start scene is static",
+      "status": "passed",
+      "pixelDifference": {
+        "sameSize": true,
+        "maxDelta": 0,
+        "changedRatio": 0
+      }
+    },
+    {
+      "name": "200% text enlargement: reflow and complete primary action",
+      "status": "passed"
+    },
+    {
+      "name": "Window blur pauses the active round",
+      "status": "passed"
+    },
+    {
+      "name": "Opaque-origin sandbox, storage failure, bridge source/protocol/channel checks, pause/resume, gameover score and replay",
+      "status": "passed",
+      "gameover": {
+        "protocol": "pepe-game/1",
+        "type": "gameover",
+        "channel": "pond-test-channel",
+        "score": 20
+      }
+    },
+    {
+      "name": "No browser exceptions, failed requests or external runtime requests",
+      "status": "passed"
+    }
+  ],
+  "errors": [],
+  "failed": [],
+  "remote": []
+}

@@ -41,14 +41,15 @@ Run the browser checks against the built export:
 ```sh
 npx playwright install chromium
 npm run test:browser
+npm run test:revision
 npm run test:visual
 ```
 
-The test script starts and stops its own local server, serves `dist/` at `/preview/`, and closes its browser on completion. It validates actual keyboard and touch input, pause/restart, scoring, both endings, persistence, responsive layouts, reduced motion, text enlargement, accessibility scans and the sandbox bridge. It uses a deterministic random seed and a simulated browser clock for repeatable rounds. The separate visual audit measures text contrast against actual canvas pixels at five widths and 200% text size. No test hooks are included in the production game. Screenshots and JSON results go into `artifacts/`.
+Each browser script starts and stops its own local server, serves `dist/` at `/preview/`, and closes its browser on completion. The original suite validates actual keyboard and touch input, pause/restart, scoring, both endings, persistence, responsive layouts, reduced motion, text enlargement, accessibility scans and the sandbox bridge. It uses a deterministic random seed and a simulated browser clock for repeatable rounds. The revision suite covers idle touch scrolling, landscape play and rotation, device-appropriate hints, concise copy, the missing-`roundRect` fallback, and an injected drawing failure with reload recovery. The separate visual audit measures text contrast against actual canvas pixels at five widths and 200% text size. No test hooks are included in the production game. Screenshots and JSON results are included in `artifacts/`; rerunning checks refreshes them.
 
 For a toolchain installed outside this repository, set `POND_TEST_MODULES` to that toolchain directory; `POND_CHROMIUM` optionally selects a browser executable. Standard installations need neither variable. `PLAYWRIGHT_BROWSERS_PATH` can keep downloaded browsers outside the repository.
 
-Actual final run: production build, TypeScript check, 12 rule/bridge/storage tests, export validation and the browser suite passed. See [`artifacts/validation.md`](artifacts/validation.md) for commands, evidence, review findings and limitations. [`DESIGN.md`](DESIGN.md) describes the implemented design system.
+Actual revision run (2026-10-11): production build, TypeScript check, 12 rule/bridge/storage tests, export validation, all 13 original browser checks, all 8 revision checks, and all 6 contrast configurations passed. See [`artifacts/validation.md`](artifacts/validation.md) for commands, evidence, the six-domain design review and limitations; [`artifacts/browser-results.json`](artifacts/browser-results.json) and [`artifacts/revision-results.json`](artifacts/revision-results.json) contain the recorded browser results. [`DESIGN.md`](DESIGN.md) describes the final design system. Every reviewer finding is answered in [`.imd-responses.json`](.imd-responses.json).
 
 ## Parent iframe bridge
 

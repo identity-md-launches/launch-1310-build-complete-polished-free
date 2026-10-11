@@ -1,4 +1,7 @@
 # Explicit path budget: 512 bytes; see SUBMISSION_BUDGET.md.
+!/artifacts/
+!/artifacts/**
+!/.imd-responses.json
 node_modules/
 .npm/
 .pnpm-store/

@@ -1,0 +1,125 @@
+{
+  "browser": "153.0.8010.12",
+  "playwright": "1.56.1",
+  "results": [
+    {
+      "name": "Single product introduction, concise metadata, one-line facts and border-only shell",
+      "status": "passed",
+      "start": {
+        "x": 42,
+        "y": 333.6875,
+        "width": 172,
+        "height": 52
+      },
+      "facts": {
+        "height": 22.09375,
+        "lineHeight": 22.1
+      }
+    },
+    {
+      "name": "Idle pond swipe scrolls; playing captures drag; mobile pause omits keyboard hint",
+      "status": "passed",
+      "scroll": 54
+    },
+    {
+      "name": "Landscape start, complete playfield, HUD, pause, restart and resume at three sizes",
+      "status": "passed",
+      "viewports": [
+        {
+          "width": 844,
+          "height": 390,
+          "start": {
+            "x": 57,
+            "y": 198.390625,
+            "width": 190,
+            "height": 52.5
+          },
+          "pond": {
+            "x": 25,
+            "y": 1.390625,
+            "width": 794,
+            "height": 318
+          },
+          "pause": {
+            "x": 643,
+            "y": 23.53125,
+            "width": 44,
+            "height": 44
+          }
+        },
+        {
+          "width": 667,
+          "height": 375,
+          "start": {
+            "x": 57,
+            "y": 198.390625,
+            "width": 190,
+            "height": 52.5
+          },
+          "pond": {
+            "x": 25,
+            "y": 1.390625,
+            "width": 617,
+            "height": 303
+          },
+          "pause": {
+            "x": 466,
+            "y": 23.53125,
+            "width": 44,
+            "height": 44
+          }
+        },
+        {
+          "width": 568,
+          "height": 320,
+          "start": {
+            "x": 42,
+            "y": 198.390625,
+            "width": 172,
+            "height": 52
+          },
+          "pond": {
+            "x": 17,
+            "y": 1.390625,
+            "width": 534,
+            "height": 272
+          },
+          "pause": {
+            "x": 450,
+            "y": 17.390625,
+            "width": 40,
+            "height": 44
+          }
+        }
+      ]
+    },
+    {
+      "name": "Rotating an active portrait round keeps the complete playfield and pause visible",
+      "status": "passed"
+    },
+    {
+      "name": "Desktop pause retains keyboard hint and border-only card",
+      "status": "passed"
+    },
+    {
+      "name": "Missing roundRect: drawing, countdown, collection, pause and restart continue",
+      "status": "passed",
+      "time": "0:56"
+    },
+    {
+      "name": "Unexpected drawing error stops once, announces recovery, focuses Reload and recovers",
+      "status": "passed"
+    },
+    {
+      "name": "No unhandled exceptions, failed requests or external runtime requests",
+      "status": "passed",
+      "realClockSandbox": "start, pause, screenshot and resume passed"
+    }
+  ],
+  "errors": [],
+  "failed": [],
+  "remote": [],
+  "expectedDiagnostics": [
+    "Pond Dash stopped after a drawing error. Error: Injected drawing failure\n    at CanvasRenderingContext2D.fillRect (eval at evaluate (:290:30), <anonymous>:3:90)\n    at ae.background (http://127.0.0.1:36239/preview/assets/index-D0GBlCES.js:2:6774)\n    at ae.render (http://127.0.0.1:36239/preview/assets/index-D0GBlCES.js:2:8190)\n    at Q (http://127.0.0.1:36239/preview/assets/index-D0GBlCES.js:69:5932)\n    at ClockController._callFirstTimer (<anonymous>:252:20)\n    at ClockController._runTo (<anonymous>:110:33)\n    at ClockController.runFor (<anonymous>:102:16)\n    at eval (eval at evaluate (:290:30), <anonymous>:1:33)\n    at eval (<anonymous>)\n    at UtilityScript.evaluate (<anonymous>:290:30)"
+  ]
+}

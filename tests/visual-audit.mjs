@@ -23,7 +23,7 @@ try {
       const rgb = color => color.match(/[\d.]+/g).slice(0, 3).map(Number);
       // Text-node line rectangles, not whole block boxes, prevent empty block
       // space from being misreported as a foreground/background collision.
-      const pairs = ['.intro-tag', '.intro h2', '.intro-copy', '.round-facts', '.rules'].map(selector => {
+      const pairs = ['.round-facts', '.rules'].map(selector => {
         const walker = document.createTreeWalker(document.querySelector(selector), NodeFilter.SHOW_TEXT);
         let text, minimum = 100, background = null;
         while (text = walker.nextNode()) {
@@ -41,9 +41,9 @@ try {
             }
           }
         }
-        return { selector, minimum: +minimum.toFixed(2), threshold: selector === '.intro h2' ? 3 : 4.5, background };
+        return { selector, minimum: +minimum.toFixed(2), threshold: 4.5, background };
       });
-      for (const [selector, backdrop] of [['#start', '#start'], ['.control-bar', '.control-bar'], ['.title-row p', 'html']]) {
+      for (const [selector, backdrop] of [['#start', '#start'], ['.control-bar', '.control-bar'], ['.title-row p', 'html'], ['html', 'html'], ['#sound', '#sound']]) {
         pairs.push({ selector, minimum: +contrast(rgb(getComputedStyle(document.querySelector(selector)).color), rgb(getComputedStyle(document.querySelector(backdrop)).backgroundColor)).toFixed(2), threshold: 4.5 });
       }
       return pairs;

@@ -1,10 +1,10 @@
 # Submission path budget
 
-Hard limit: **8,388,608 bytes (8 MiB)** for the complete Git submission bundle. These are explicit maximum byte allocations, including an explicit allocation before creating the ignore file. No previous ignore rules are being replaced.
+Hard limit: **8,388,608 bytes (8 MiB)** for the complete Git submission bundle. These are explicit maximum byte allocations, including the existing 512-byte allocation before changing the ignore file. The revision uses that allocation to add root-only exceptions for `artifacts/`, its contents and `.imd-responses.json`, overriding local Git exclusions without editing `.git/`. Dependency/cache exclusions remain in place.
 
 | Path | Maximum bytes | Purpose |
 | --- | ---: | --- |
-| `.gitignore` | 512 | Exclude dependencies, caches and temporary browser output at every depth; keep `dist/` included |
+| `.gitignore` | 512 | Exclude dependencies/caches at every depth; include `dist/`, root `artifacts/**` and `.imd-responses.json` |
 | `dist/**` | 262,144 | Complete production website, script/styles, cover, favicon and manifest |
 | `src/**`, `public/**` | 262,144 | Complete game, original artwork and source assets |
 | `tests/**`, `scripts/**` | 262,144 | Reproducible rule, browser and export verification |

@@ -1,0 +1,312 @@
+{
+  "method": "Conservative per-pixel sampling under DOM text-node line boxes on the static reduced-motion start scene; opaque UI uses computed colors. Not a universal ratio for animated gameplay.",
+  "browser": "153.0.8010.12",
+  "results": [
+    {
+      "width": 1440,
+      "textScale": 1,
+      "pairs": [
+        {
+          "selector": ".round-facts",
+          "minimum": 6.36,
+          "threshold": 4.5,
+          "background": [
+            15,
+            55,
+            61
+          ]
+        },
+        {
+          "selector": ".rules",
+          "minimum": 5.86,
+          "threshold": 4.5,
+          "background": [
+            19,
+            61,
+            66
+          ]
+        },
+        {
+          "selector": "#start",
+          "minimum": 8.83,
+          "threshold": 4.5
+        },
+        {
+          "selector": ".control-bar",
+          "minimum": 7.05,
+          "threshold": 4.5
+        },
+        {
+          "selector": ".title-row p",
+          "minimum": 8.03,
+          "threshold": 4.5
+        },
+        {
+          "selector": "html",
+          "minimum": 13.5,
+          "threshold": 4.5
+        },
+        {
+          "selector": "#sound",
+          "minimum": 8.27,
+          "threshold": 4.5
+        }
+      ]
+    },
+    {
+      "width": 900,
+      "textScale": 1,
+      "pairs": [
+        {
+          "selector": ".round-facts",
+          "minimum": 6.2,
+          "threshold": 4.5,
+          "background": [
+            15,
+            57,
+            63
+          ]
+        },
+        {
+          "selector": ".rules",
+          "minimum": 6.62,
+          "threshold": 4.5,
+          "background": [
+            14,
+            52,
+            58
+          ]
+        },
+        {
+          "selector": "#start",
+          "minimum": 8.83,
+          "threshold": 4.5
+        },
+        {
+          "selector": ".control-bar",
+          "minimum": 7.05,
+          "threshold": 4.5
+        },
+        {
+          "selector": ".title-row p",
+          "minimum": 8.03,
+          "threshold": 4.5
+        },
+        {
+          "selector": "html",
+          "minimum": 13.5,
+          "threshold": 4.5
+        },
+        {
+          "selector": "#sound",
+          "minimum": 8.27,
+          "threshold": 4.5
+        }
+      ]
+    },
+    {
+      "width": 640,
+      "textScale": 1,
+      "pairs": [
+        {
+          "selector": ".round-facts",
+          "minimum": 6.11,
+          "threshold": 4.5,
+          "background": [
+            16,
+            58,
+            64
+          ]
+        },
+        {
+          "selector": ".rules",
+          "minimum": 6.62,
+          "threshold": 4.5,
+          "background": [
+            14,
+            52,
+            58
+          ]
+        },
+        {
+          "selector": "#start",
+          "minimum": 8.83,
+          "threshold": 4.5
+        },
+        {
+          "selector": ".control-bar",
+          "minimum": 7.05,
+          "threshold": 4.5
+        },
+        {
+          "selector": ".title-row p",
+          "minimum": 8.03,
+          "threshold": 4.5
+        },
+        {
+          "selector": "html",
+          "minimum": 13.5,
+          "threshold": 4.5
+        },
+        {
+          "selector": "#sound",
+          "minimum": 8.27,
+          "threshold": 4.5
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "textScale": 1,
+      "pairs": [
+        {
+          "selector": ".round-facts",
+          "minimum": 5.53,
+          "threshold": 4.5,
+          "background": [
+            22,
+            65,
+            70
+          ]
+        },
+        {
+          "selector": ".rules",
+          "minimum": 6.61,
+          "threshold": 4.5,
+          "background": [
+            15,
+            52,
+            58
+          ]
+        },
+        {
+          "selector": "#start",
+          "minimum": 8.83,
+          "threshold": 4.5
+        },
+        {
+          "selector": ".control-bar",
+          "minimum": 7.05,
+          "threshold": 4.5
+        },
+        {
+          "selector": ".title-row p",
+          "minimum": 8.03,
+          "threshold": 4.5
+        },
+        {
+          "selector": "html",
+          "minimum": 13.5,
+          "threshold": 4.5
+        },
+        {
+          "selector": "#sound",
+          "minimum": 8.27,
+          "threshold": 4.5
+        }
+      ]
+    },
+    {
+      "width": 320,
+      "textScale": 1,
+      "pairs": [
+        {
+          "selector": ".round-facts",
+          "minimum": 6.03,
+          "threshold": 4.5,
+          "background": [
+            16,
+            59,
+            65
+          ]
+        },
+        {
+          "selector": ".rules",
+          "minimum": 6.26,
+          "threshold": 4.5,
+          "background": [
+            19,
+            56,
+            61
+          ]
+        },
+        {
+          "selector": "#start",
+          "minimum": 8.83,
+          "threshold": 4.5
+        },
+        {
+          "selector": ".control-bar",
+          "minimum": 7.05,
+          "threshold": 4.5
+        },
+        {
+          "selector": ".title-row p",
+          "minimum": 8.03,
+          "threshold": 4.5
+        },
+        {
+          "selector": "html",
+          "minimum": 13.5,
+          "threshold": 4.5
+        },
+        {
+          "selector": "#sound",
+          "minimum": 8.27,
+          "threshold": 4.5
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "textScale": 2,
+      "pairs": [
+        {
+          "selector": ".round-facts",
+          "minimum": 6.36,
+          "threshold": 4.5,
+          "background": [
+            15,
+            55,
+            61
+          ]
+        },
+        {
+          "selector": ".rules",
+          "minimum": 5.83,
+          "threshold": 4.5,
+          "background": [
+            25,
+            61,
+            64
+          ]
+        },
+        {
+          "selector": "#start",
+          "minimum": 8.83,
+          "threshold": 4.5
+        },
+        {
+          "selector": ".control-bar",
+          "minimum": 7.05,
+          "threshold": 4.5
+        },
+        {
+          "selector": ".title-row p",
+          "minimum": 8.03,
+          "threshold": 4.5
+        },
+        {
+          "selector": "html",
+          "minimum": 13.5,
+          "threshold": 4.5
+        },
+        {
+          "selector": "#sound",
+          "minimum": 8.27,
+          "threshold": 4.5
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "browser": "153.0.8010.12",
+  "observations": {
+    "mobile": {
+      "title": "Pond Dash — A little frog. A big night.",
+      "ogTitle": "Pond Dash — A little frog. A big night.",
+      "h1": {
+        "text": "Pond Dash.",
+        "y": 92,
+        "height": 46.1875,
+        "bottom": 138.1875
+      },
+      "tagline": {
+        "text": "A little frog. A big night.",
+        "y": 144.1875,
+        "height": 19.5,
+        "bottom": 163.6875
+      },
+      "kicker": {
+        "text": "The pond is calling",
+        "y": 288.6875,
+        "height": 19.5,
+        "bottom": 308.1875
+      },
+      "intro": {
+        "text": "Go with the glow.",
+        "y": 320.1875,
+        "height": 41.578125,
+        "bottom": 361.765625
+      },
+      "facts": {
+        "text": "60 seconds · 3 lives · One happy frog",
+        "y": 560.765625,
+        "height": 44.1875,
+        "bottom": 604.953125
+      },
+      "start": {
+        "text": "Start drifting ",
+        "y": 497.765625,
+        "height": 52,
+        "bottom": 549.765625
+      },
+      "canvasTouchAction": "none",
+      "maxScroll": 63,
+      "swipeTarget": "game-canvas",
+      "slogans": [
+        "Small games. Good times.",
+        "Always free to play",
+        "A one-minute pond escape",
+        "Somewhere, after moonrise☾",
+        "Follow the fireflies. Mind the logs.",
+        "Made for a moment of play.",
+        "No downloads. Just drift."
+      ]
+    },
+    "swipe": {
+      "canvas": 0,
+      "title": 63
+    },
+    "pause": {
+      "hint": "P or Escape to resume",
+      "hintDisplay": "block",
+      "surfaces": [
+        {
+          "selector": "#pond",
+          "shadow": "rgba(4, 26, 29, 0.2) 0px 18px 50px 0px",
+          "border": "1px"
+        },
+        {
+          "selector": "#pause-screen .state-card",
+          "shadow": "rgba(6, 29, 36, 0.2) 0px 12px 32px 0px",
+          "border": "1px"
+        }
+      ]
+    },
+    "landscapeStart": {
+      "x": 57,
+      "y": 635.546875,
+      "width": 190,
+      "height": 52.5
+    },
+    "landscapePlaying": {
+      "scrollY": 467,
+      "pond": {
+        "y": -212.109375,
+        "height": 538,
+        "bottom": 325.890625
+      },
+      "hud": {
+        "y": -212.109375,
+        "height": 88.296875,
+        "bottom": -123.8125
+      },
+      "pause": {
+        "y": -189.96875,
+        "height": 44,
+        "bottom": -145.96875
+      }
+    },
+    "noRoundRect": {
+      "firstTime": "1:00",
+      "lastTime": "1:00",
+      "phase": "playing",
+      "errors": [
+        "e.roundRect is not a function"
+      ]
+    }
+  }
+}

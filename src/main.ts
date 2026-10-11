@@ -24,13 +24,11 @@ const app = document.querySelector<HTMLDivElement>('#app')!;
 app.innerHTML = `
   <a class="skip-link" href="#pond">Skip to game</a>
   <header class="site-header">
-    <div class="brand">${frogMark}<span>Pepe2Pepe</span><span class="brand-divider"></span><span class="brand-note">Small games. Good times.</span></div>
-    <span class="free-label"><span></span>Always free to play</span>
+    <div class="brand">${frogMark}<span>Pepe2Pepe</span></div>
   </header>
   <main>
     <section class="title-row" aria-labelledby="game-title">
-      <div><h1 id="game-title">Pond Dash<span class="title-dot">.</span></h1><p>A little frog. A big night.</p></div>
-      <div class="round-tag">${icon('moon')}<span>A one-minute pond escape</span></div>
+      <div><h1 id="game-title">Pond Dash<span class="title-dot">.</span></h1><p>Surf a lily pad through a moonlit pond.</p></div>
     </section>
     <section id="pond" class="game-shell" data-phase="idle" aria-label="Pond Dash game">
       <div class="pond-surface">
@@ -45,13 +43,10 @@ app.innerHTML = `
             <button id="sound" class="icon-button" aria-label="Sound" aria-pressed="false" title="Turn sound on">${icon('silent')}</button>
           </div>
         </div>
-        <section class="intro" id="intro" aria-labelledby="intro-title">
-          <span class="intro-tag">${icon('moon')}The pond is calling</span>
-          <h2 id="intro-title">Go with<br> the glow.</h2>
-          <p class="intro-copy">Surf a lily pad through a moonlit pond.<br class="desktop-break"> A little focus. A little frog magic.</p>
+        <section class="intro" id="intro" aria-label="How to play">
           <div class="rules"><span><span class="firefly-mini" aria-hidden="true">✦</span>Catch fireflies <b>+10</b></span><span><span class="log-mini" aria-hidden="true"></span>Dodge logs <b>−1 life</b></span></div>
           <button id="start" class="primary-button">Start drifting ${icon('arrow')}</button>
-          <p class="round-facts">60 seconds <span>·</span> 3 lives <span>·</span> One happy frog</p>
+          <p class="round-facts">60 seconds <span>·</span> 3 lives</p>
         </section>
         <section id="pause-screen" class="state-screen" aria-labelledby="pause-title" hidden>
           <div class="state-card">
@@ -74,20 +69,25 @@ app.innerHTML = `
             <p class="state-hint" id="result-best"></p>
           </div>
         </section>
+        <section id="error-screen" class="state-screen" aria-labelledby="error-title" hidden>
+          <div class="state-card">
+            <h2 id="error-title">The pond couldn’t load.</h2>
+            <p>Something went wrong drawing the pond. Reload to play.</p>
+            <button id="reload" class="primary-button">Reload game ${icon('restart')}</button>
+          </div>
+        </section>
         <div class="current-label" id="current-label" hidden><span class="current-bars" aria-hidden="true"><i></i><i></i><i></i></span><span id="current-text">Easy current</span></div>
-        <div class="scene-caption" id="scene-caption"><span>Somewhere, after moonrise</span><span>☾</span></div>
       </div>
       <div class="control-bar" id="play-instructions">
         <div class="steering-hint"><span class="keyboard-hint"><kbd>←</kbd><kbd>→</kbd><span>or</span><kbd>A</kbd><kbd>D</kbd><span>to steer</span></span><span class="touch-hint">↔ <span>Drag on the pond to steer</span></span></div>
         <span class="pause-hint"><kbd>P</kbd><span>or</span><kbd>Esc</kbd><span>to pause</span></span>
-        <span class="control-note">Follow the fireflies. Mind the logs.</span>
       </div>
     </section>
-    <div class="below-game"><p>${icon('heart')} Made for a moment of play.</p><p>Personal best <strong id="best-score">0</strong><span class="best-unit">pts</span></p></div>
+    <div class="below-game"><p>Personal best <strong id="best-score">0</strong><span class="best-unit">pts</span></p></div>
     <p id="save-note" class="save-note" hidden>Best score stays in this session. Browser storage is unavailable.</p>
     <p id="status" class="sr-only" role="status" aria-live="polite"></p>
   </main>
-  <footer class="site-footer"><span>Pond Dash <span class="footer-separator">/</span> A Pepe2Pepe game</span><span>No downloads. Just drift.</span></footer>
+  <footer class="site-footer"><span>Pond Dash <span class="footer-separator">/</span> A Pepe2Pepe game</span></footer>
 `;
 function el<T extends HTMLElement = HTMLElement>(id: string): T { return document.getElementById(id) as T; }
 const game = new PondGame();
@@ -104,6 +104,7 @@ let best = readBest();
 let phase = game.phase;
 let animationTime = 0;
 let lastTime = 0;
+let frameFailed = false;
 let dragId: number | null = null;
 let previousPointerX = 0;
 const keys = new Set<string>();
@@ -112,6 +113,7 @@ renderer.reduced = reducedMotion.matches;
 reducedMotion.addEventListener('change', event => { renderer.reduced = event.matches; });
 
 const bridge = new ParentBridge(window, action => {
+  if (frameFailed) return;
   if (action === 'pause') game.pause('host'); else game.resume('host');
   keys.clear(); dragId = null;
   sync();
@@ -124,19 +126,23 @@ function updateSound() {
   button.innerHTML = icon(audio.enabled ? 'sound' : 'silent');
 }
 function start() {
+  if (frameFailed) return;
   game.start(); keys.clear(); dragId = null; renderer.particles = [];
   void audio.unlock().then(() => audio.tone('start'));
   announce('Round started. Three lives. Collect fireflies and dodge logs.');
   sync();
+  fitShortViewport();
   if (game.phase === 'playing') canvas.focus({ preventScroll: true });
 }
 function togglePause() {
+  if (frameFailed) return;
   if (game.phase === 'playing') game.pause();
   else if (game.phase === 'paused') game.resume();
   keys.clear(); dragId = null; sync();
 }
 let displaySignature = "";
 function sync() {
+  if (frameFailed) return;
   const signature = [game.phase, game.score, game.remaining, game.lives, best, Math.floor(game.elapsed / 20), ...game.pauses].join(":");
   if (displaySignature === signature) return;
   displaySignature = signature;
@@ -157,7 +163,6 @@ function sync() {
   el('pause-screen').hidden = game.phase !== 'paused';
   el('result-screen').hidden = !game.outcome;
   el('current-label').hidden = !active;
-  el('scene-caption').hidden = game.phase !== 'idle';
   el('pond').dataset.phase = game.phase;
   canvas.tabIndex = game.phase === 'playing' ? 0 : -1;
   const hostPaused = game.pauses.has('host');
@@ -186,6 +191,7 @@ function sync() {
   }
 }
 el('pause-title').tabIndex = -1;
+el('reload').addEventListener('click', () => window.location.reload());
 for (const id of ['start', 'restart', 'pause-restart', 'again']) el(id).addEventListener('click', start);
 for (const id of ['pause', 'resume']) el(id).addEventListener('click', () => { void audio.unlock(); togglePause(); });
 el('sound').addEventListener('click', () => {
@@ -228,33 +234,50 @@ canvas.addEventListener('pointermove', event => {
   game.steerTo(game.x + dx);
 });
 for (const name of ['pointerup', 'pointercancel', 'lostpointercapture']) canvas.addEventListener(name, () => { dragId = null; });
+function fitShortViewport() {
+  if (game.started && window.matchMedia('(max-height: 540px)').matches) el('pond').scrollIntoView({ block: 'start' });
+}
 const resizeObserver = new ResizeObserver(entries => {
   const { width, height } = entries[0].contentRect;
   if (width <= 0 || height <= 0) return;
   game.resize(width, height); renderer.resize(width, height);
+  fitShortViewport();
 });
 resizeObserver.observe(canvas);
 function frame(timestamp: number) {
-  const dt = lastTime ? Math.min((timestamp - lastTime) / 1000, 0.1) : 0;
-  lastTime = timestamp;
-  const direction = Number(keys.has('arrowright') || keys.has('d')) - Number(keys.has('arrowleft') || keys.has('a'));
-  game.step(dt, direction);
-  for (const event of game.takeEvents()) {
-    renderer.event(event);
-    if (event.type === 'collect') audio.tone('collect');
-    if (event.type === 'hit') { audio.tone('hit'); announce(`${game.lives} ${game.lives === 1 ? 'life' : 'lives'} left. Watch the logs.`); }
-    if (event.type === 'finish') {
-      if (game.score > best) {
-        best = game.score;
-        if (!writeSetting(BEST_KEY, String(best))) el('save-note').hidden = false;
-      }
-      audio.tone(game.outcome === 'won' ? 'win' : 'hit');
-      bridge.send('gameover', game.score);
-    }
-  }
-  if (game.phase === 'idle' || game.phase === 'playing') animationTime += dt;
-  renderer.render(game, animationTime, dt, direction);
-  sync();
+  if (frameFailed) return;
   requestAnimationFrame(frame);
+  try {
+    const dt = lastTime ? Math.min((timestamp - lastTime) / 1000, 0.1) : 0;
+    lastTime = timestamp;
+    const direction = Number(keys.has('arrowright') || keys.has('d')) - Number(keys.has('arrowleft') || keys.has('a'));
+    game.step(dt, direction);
+    for (const event of game.takeEvents()) {
+      renderer.event(event);
+      if (event.type === 'collect') audio.tone('collect');
+      if (event.type === 'hit') { audio.tone('hit'); announce(`${game.lives} ${game.lives === 1 ? 'life' : 'lives'} left. Watch the logs.`); }
+      if (event.type === 'finish') {
+        if (game.score > best) {
+          best = game.score;
+          if (!writeSetting(BEST_KEY, String(best))) el('save-note').hidden = false;
+        }
+        audio.tone(game.outcome === 'won' ? 'win' : 'hit');
+        bridge.send('gameover', game.score);
+      }
+    }
+    if (game.phase === 'idle' || game.phase === 'playing') animationTime += dt;
+    renderer.render(game, animationTime, dt, direction);
+    sync();
+  } catch (error) {
+    frameFailed = true;
+    game.pause(); keys.clear(); dragId = null;
+    for (const id of ['intro', 'pause-screen', 'result-screen', 'current-label', 'pause', 'restart']) el(id).hidden = true;
+    el('pond').dataset.phase = 'error';
+    canvas.tabIndex = -1;
+    el('error-screen').hidden = false;
+    announce('Something went wrong drawing the pond. Reload to play.');
+    el('reload').focus({ preventScroll: true });
+    console.error('Pond Dash stopped after a drawing error.', error);
+  }
 }
 updateSound(); sync(); requestAnimationFrame(frame);

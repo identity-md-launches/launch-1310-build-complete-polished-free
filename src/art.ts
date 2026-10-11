@@ -73,8 +73,8 @@ export function drawFirefly(ctx: CanvasRenderingContext2D, x: number, y: number,
 export function drawLog(ctx: CanvasRenderingContext2D, x: number, y: number, width: number, rotation = 0) {
   ctx.save(); ctx.translate(x, y); ctx.rotate(rotation);
   ellipse(ctx, 0, 15, width * 0.57, 17, '#061d2466');
-  ctx.fillStyle = '#a67b55'; ctx.beginPath(); ctx.roundRect(-width / 2, -15, width, 30, 12); ctx.fill();
-  ctx.fillStyle = '#be9669'; ctx.beginPath(); ctx.roundRect(-width / 2 + 5, -15, width - 9, 11, 5); ctx.fill();
+  ctx.fillStyle = '#a67b55'; roundedRect(ctx, -width / 2, -15, width, 30, 12); ctx.fill();
+  ctx.fillStyle = '#be9669'; roundedRect(ctx, -width / 2 + 5, -15, width - 9, 11, 5); ctx.fill();
   line(ctx, [-width / 2 + 15, 6, width / 2 - 8, 6], '#78583d', 2);
   line(ctx, [-width / 2 + 17, -5, width / 4, -5], '#d0aa77', 2);
   ellipse(ctx, -width / 2 + 7, 0, 9, 14, '#e3bd87');
@@ -82,6 +82,19 @@ export function drawLog(ctx: CanvasRenderingContext2D, x: number, y: number, wid
   ctx.fillStyle = '#9d8056'; ctx.beginPath(); ctx.moveTo(8, -9); ctx.lineTo(2, -28); ctx.lineTo(13, -30); ctx.lineTo(21, -10); ctx.fill();
   ellipse(ctx, width * 0.21, -12, width * 0.17, 5, '#7f9a62');
   ctx.restore();
+}
+
+// Keep the log drawable when the optional canvas roundRect API is unavailable.
+function roundedRect(ctx: CanvasRenderingContext2D, x: number, y: number, width: number, height: number, radius: number) {
+  ctx.beginPath();
+  if (typeof ctx.roundRect === 'function') { ctx.roundRect(x, y, width, height, radius); return; }
+  const r = Math.min(radius, width / 2, height / 2);
+  ctx.moveTo(x + r, y);
+  ctx.lineTo(x + width - r, y); ctx.arcTo(x + width, y, x + width, y + r, r);
+  ctx.lineTo(x + width, y + height - r); ctx.arcTo(x + width, y + height, x + width - r, y + height, r);
+  ctx.lineTo(x + r, y + height); ctx.arcTo(x, y + height, x, y + height - r, r);
+  ctx.lineTo(x, y + r); ctx.arcTo(x, y, x + r, y, r);
+  ctx.closePath();
 }
 
 export class PondRenderer {
@@ -146,7 +159,8 @@ export class PondRenderer {
         line(ctx, [x + side * 9, y - 55, x + side * 10, y - 78], '#8a9470', 6);
       }
     }
-    drawPad(ctx, w * 0.56, h * (w < 640 ? 0.145 : 0.24), w < 640 ? 0.3 : 0.49, -0.2);
+    // Leave the compact start-screen rules on uninterrupted dark water.
+    drawPad(ctx, w * 0.56, h * (w < 640 ? (idle ? 0.51 : 0.145) : 0.24), w < 640 ? 0.3 : 0.49, -0.2);
     drawPad(ctx, w * 0.94, h * 0.51, 0.54, 0.25);
     drawPad(ctx, w * 0.32, h * 0.965, 0.36, 0.2);
     // Original water lily in the foreground.

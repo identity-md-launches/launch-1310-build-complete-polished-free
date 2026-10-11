@@ -1,0 +1,29 @@
+
+> pond-dash@1.0.0 test
+> node --experimental-strip-types --test tests/*.test.ts
+
+✔ round starts with three lives and resets all previous run state (1.566769ms)
+✔ firefly gives ten integer points and is collected once (2.308468ms)
+✔ log takes one life with a grace period, third separate hit ends round once (0.687657ms)
+✔ surviving 60 seconds wins, freezes score, and reports finish once (10.015564ms)
+✔ speed increases continuously and entities stay bounded over an entire run (4.385515ms)
+✔ both pause sources freeze simulation; each must resume separately (0.98048ms)
+✔ host pause before start persists through start and restart (0.320579ms)
+✔ steering clamps at both banks, resizing preserves position, bad deltas ignored (2.479191ms)
+✔ each generated wave has clear lanes and no firefly placed on a log lane (0.684383ms)
+✔ bridge only accepts parent, correct protocol, valid init and matching channel (0.866315ms)
+✔ opaque parent uses wildcard reply; standalone self-messages ignored (0.255742ms)
+✔ storage getter and setItem failures are caught; invalid best is rejected (0.446658ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 242.867584
+npm notice
+npm notice New major version of npm available! 11.19.0 -> 12.2.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0
+npm notice To update run: npm install -g npm@12.2.0
+npm notice

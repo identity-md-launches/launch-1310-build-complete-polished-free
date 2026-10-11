@@ -1,0 +1,28 @@
+{
+  "result": "PASS",
+  "method": "Uncompressed current Git candidate file bytes plus the full reserved 3 MiB for Git history, object metadata and packaging. This is a conservative budget check, not an actual coordinator-created Git bundle.",
+  "fileCount": 65,
+  "payloadBytes": 3621179,
+  "gitAndPackagingReserveBytes": 3145216,
+  "conservativeBundleBudgetBytes": 6766395,
+  "limitBytes": 8388608,
+  "headroomAfterReserveBytes": 1622213,
+  "pathBytes": {
+    ".gitignore": 331,
+    "dist": 44404,
+    "source/public": 59053,
+    "tests/scripts": 45480,
+    "artifacts": 3388277,
+    "root/docs": 83634
+  },
+  "pathBudgets": {
+    ".gitignore": 512,
+    "dist": 262144,
+    "source/public": 262144,
+    "tests/scripts": 262144,
+    "artifacts": 4194304,
+    "root/docs": 262144
+  },
+  "requiredEvidenceIncluded": true,
+  "noDependencyCachesArchivesSymlinksOrSubmodules": true
+}
