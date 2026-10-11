@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title description">
+<title id="title">Pond Dash</title><desc id="description">A smiling pale mint frog on a lily pad, surrounded by golden fireflies in a moonlit teal pond.</desc>
+<defs>
+ <linearGradient id="pond" x2="1" y2="1"><stop stop-color="#09262c"/><stop offset="1" stop-color="#164b4e"/></linearGradient>
+ <radialGradient id="glow"><stop stop-color="#f7d77b" stop-opacity=".35"/><stop offset="1" stop-color="#f7d77b" stop-opacity="0"/></radialGradient>
+ <g id="fly"><circle r="27" fill="url(#glow)"/><ellipse cx="-6" cy="-3" rx="7" ry="4" transform="rotate(-25)" fill="#f4edbd" opacity=".7"/><ellipse cx="6" cy="-3" rx="7" ry="4" transform="rotate(25)" fill="#f4edbd" opacity=".7"/><ellipse rx="4" ry="7" fill="#f8d778"/><ellipse cy="-4" rx="3" ry="3" fill="#ffefb0"/></g>
+ <g id="pad"><ellipse cy="10" rx="85" ry="30" fill="#071e24"/><path d="M83 6A84 34 0 1 1 84-3L8 0Z" fill="#4d9e7c" stroke="#6eb79a" stroke-width="2"/><g stroke="#6bb08c" stroke-width="1.5"><path d="M4 1-65-6M4 1-43-22M4 1-12-27M4 1 23-26M4 1 50-16M4 1-48 18M4 1-9 24M4 1 39 19"/></g></g>
+</defs>
+<path fill="url(#pond)" d="M0 0h1200v630H0z"/>
+<g fill="none" stroke="#72a092" opacity=".16"><path d="M480 92q100-12 200 0M550 163q160 14 330 0M40 532q130-13 240 0M628 547q185 15 351-1M60 384q50 4 86 0M340 578q138 13 208-2M948 257q125-7 223 0M783 324q135 5 220-2M170 198q150 4 240 0"/><ellipse cx="898" cy="464" rx="205" ry="44"/><ellipse cx="898" cy="464" rx="238" ry="58"/></g>
+<circle cx="987" cy="119" r="36" fill="#e4ebc6"/><circle cx="998" cy="111" r="34" fill="#21494b"/>
+<g stroke="#c6d4af" stroke-width="2" opacity=".16"><path d="M971 174h23m-30 12h48m-57 13h66m-66 14h70m-86 14h95"/></g>
+<g fill="#1d5752"><path d="M0 630V326q75 103 28 179 55-43 60-125 34 119-31 169 55-13 95-48-23 79-83 92Z"/><path d="M1200 630V263q-66 103-25 176-45-44-59-125-20 111 26 171-65-27-80-60 6 74 76 129-85-28-117-4 59 55 90 80Z"/></g>
+<use href="#pad" transform="translate(1098 338) rotate(-15) scale(.56)"/><use href="#pad" transform="translate(659 210) rotate(15) scale(.4)"/>
+<g transform="translate(891 390) rotate(-4) scale(1.8)">
+ <use href="#pad" y="38"/>
+ <ellipse cy="29" rx="47" ry="11" fill="#27765f"/>
+ <g fill="#8fccaa"><ellipse cx="-35" cy="11" rx="24" ry="18" transform="rotate(-15)"/><ellipse cx="34" cy="11" rx="24" ry="18" transform="rotate(15)"/></g>
+ <ellipse cy="-5" rx="34" ry="39" fill="#bce5ba"/><ellipse cx="1" cy="4" rx="23" ry="27" fill="#deedc8"/>
+ <g stroke="#bce5ba" stroke-width="11" stroke-linecap="round" fill="none"><path d="m-24-10-10 34-13 5M24-10l10 34 14 5"/></g>
+ <g stroke="#cee9c2" stroke-width="4" stroke-linecap="round"><path d="m-38 27-1 6m-4-6-3 5m-2-5-5 4m91-4 1 6m4-6 3 5m2-5 5 4"/></g>
+ <path d="M-21-28q34 12 52-1l-5 10q-25 8-47-1ZM25-24q24-7 35 7l-15 2 5 8q-16-3-25-17Z" fill="#bdb0e8"/>
+ <g fill="#bce5ba"><ellipse cy="-45" rx="47" ry="31"/><ellipse cx="-27" cy="-67" rx="20" ry="23"/><ellipse cx="27" cy="-67" rx="20" ry="23"/></g>
+ <g fill="#f2f0d2"><ellipse cx="-27" cy="-70" rx="13" ry="15"/><ellipse cx="27" cy="-70" rx="13" ry="15"/></g>
+ <g fill="#153e36"><ellipse cx="-24" cy="-68" rx="5.5" ry="9"/><ellipse cx="30" cy="-68" rx="5.5" ry="9"/></g>
+ <g fill="#fff"><ellipse cx="-22" cy="-72" rx="1.8" ry="2.5"/><ellipse cx="32" cy="-72" rx="1.8" ry="2.5"/></g>
+ <g fill="#e5b8a8"><ellipse cx="-33" cy="-40" rx="9" ry="4.5"/><ellipse cx="34" cy="-40" rx="9" ry="4.5"/></g>
+ <g fill="#5c937a"><circle cx="-7" cy="-48" r="1.5"/><circle cx="7" cy="-48" r="1.5"/></g>
+ <path d="M-19-37Q3-22 24-39m-3-2 6 3" stroke="#285c4b" stroke-width="2.8" stroke-linecap="round" fill="none"/>
+</g>
+<use href="#fly" x="733" y="273"/><use href="#fly" x="1054" y="297"/><use href="#fly" x="674" y="399"/><use href="#fly" x="1072" y="462"/>
+<g transform="translate(669 482) rotate(-18)"><rect x="-56" y="-15" width="112" height="30" rx="12" fill="#a67b55"/><rect x="-48" y="-15" width="98" height="10" rx="5" fill="#be9669"/><ellipse cx="-49" rx="9" ry="14" fill="#e3bd87"/><ellipse cx="-49" rx="5" ry="9" fill="none" stroke="#a77a51"/><path d="M-28 6h72" stroke="#78583d" stroke-width="2"/><ellipse cx="28" cy="-12" rx="19" ry="5" fill="#7f9a62"/></g>
+<g font-family="Arial, sans-serif"><text x="76" y="79" fill="#bad8c0" font-size="23" font-weight="700">Pepe2Pepe</text><text x="76" y="155" fill="#a3bcb2" font-size="18">A little frog. A big night.</text></g>
+<text x="70" y="269" fill="#e4eddf" font-family="Georgia, serif" font-size="112" letter-spacing="-5">Pond Dash<tspan fill="#cfbdf1">.</tspan></text>
+<text x="76" y="331" fill="#bad1c3" font-family="Arial, sans-serif" font-size="22">Surf a lily pad. Follow the fireflies.</text>
+<rect x="76" y="375" width="220" height="58" rx="12" fill="#cfbdf1"/>
+<text x="104" y="411" fill="#292239" font-family="Arial, sans-serif" font-size="20" font-weight="700">Start drifting</text><path d="M256 404h16m-6-6 6 6-6 6" stroke="#292239" stroke-width="2" fill="none"/>
+<text x="76" y="475" fill="#a3bcb2" font-family="Arial, sans-serif" font-size="17">60 seconds  ·  3 lives  ·  Free to play</text>
+<text x="76" y="577" fill="#a3bcb2" font-family="Arial, sans-serif" font-size="16">Somewhere, after moonrise.</text>
+</svg>

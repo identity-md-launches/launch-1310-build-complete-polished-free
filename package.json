@@ -1,0 +1,26 @@
+{
+  "name": "pond-dash",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A self-contained, one-minute illustrated pond slalom.",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "vite build && node scripts/finalize-export.mjs",
+    "preview": "vite preview --host 127.0.0.1",
+    "typecheck": "tsc --noEmit",
+    "test": "node --experimental-strip-types --test tests/*.test.ts",
+    "test:browser": "node tests/browser.mjs",
+    "check:export": "node scripts/check-export.mjs",
+    "test:visual": "node tests/visual-audit.mjs"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.10.2",
+    "@playwright/test": "1.56.1",
+    "typescript": "5.9.3",
+    "vite": "7.3.7"
+  },
+  "engines": {
+    "node": ">=22.18.0"
+  }
+}

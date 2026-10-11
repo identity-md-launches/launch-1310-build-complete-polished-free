@@ -1,0 +1,14 @@
+# Explicit path budget: 512 bytes; see SUBMISSION_BUDGET.md.
+node_modules/
+.npm/
+.pnpm-store/
+**/.yarn/cache/
+.cache/
+.vite/
+coverage/
+test-results/
+playwright-report/
+.playwright-mcp/
+test/scratch/
+*.tsbuildinfo
+# dist/ and artifacts/ are required deliverables and stay included.
